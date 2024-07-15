@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateShowDto } from './dto/create-show.dto';
 import { UpdateShowDto } from './dto/update-show.dto';
 import { InjectModel } from '@nestjs/mongoose';
@@ -33,7 +33,11 @@ export class ShowService {
     return `This action updates a #${id} show`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} show`;
+  async remove(id: string): Promise<void> {
+    const result = await this.showModel.findByIdAndDelete(id);
+    if (!result) {
+      throw new NotFoundException(`Show with ID "${id}" not found`);
+    }
   }
-}
+  }
+

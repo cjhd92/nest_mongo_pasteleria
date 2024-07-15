@@ -29,6 +29,6 @@ export class ShowController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.showService.remove(+id);
+    return this.showService.remove(id);
   }
 }
