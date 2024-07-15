@@ -5,16 +5,18 @@ import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
 export class Show{
 
     @Prop({required:true})
+    categoria:string;
+
+    @Prop({required:true})
     title:string;
     
-    @Prop()
+    @Prop({required:false})
     description:string;
     
-    @Prop()
+    @Prop({required:true})
     price:number;
     
-    @Prop()
-    image:string;
+  
 }
 
 
