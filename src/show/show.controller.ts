@@ -23,8 +23,9 @@ export class ShowController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateShowDto: UpdateShowDto) {
-    return this.showService.update(+id, updateShowDto);
+  update(@Param('id') id: string, 
+        @Body() updateShowDto: UpdateShowDto) {
+    return this.showService.update(id, updateShowDto);
   }
 
   @Delete(':id')
