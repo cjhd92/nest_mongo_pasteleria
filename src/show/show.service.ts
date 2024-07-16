@@ -16,7 +16,13 @@ export class ShowService {
 
   async create(show:any) {
 
-    const createdShow = new this.showModel(show);
+    // Añadir el campo mes con el valor 7
+    const newShow = {
+      ...show,
+      mes_compra: 7,
+    };
+
+    const createdShow = new this.showModel(newShow);
 
 
     return createdShow.save();

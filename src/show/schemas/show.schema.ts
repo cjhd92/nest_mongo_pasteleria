@@ -16,6 +16,9 @@ export class Show{
     @Prop({required:true})
     price:number;
     
+    @Prop({required:false})
+    mes_compra:number;
+    
   
 }
 
